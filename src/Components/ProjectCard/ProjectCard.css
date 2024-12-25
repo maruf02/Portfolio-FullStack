@@ -1,0 +1,148 @@
+.login-form-container {
+  border-radius: 50px 0px;
+  align-items: center;
+}
+
+.login-form-container::before {
+  position: absolute;
+  width: 170%;
+  height: 170%;
+  content: "";
+  background-image: conic-gradient(
+    transparent,
+    transparent,
+    transparent,
+    #ee00ff
+  );
+  animation: rotate_border 6s linear infinite;
+}
+
+.login-form-container::after {
+  position: absolute;
+  width: 170%;
+  height: 170%;
+  content: "";
+  background-image: conic-gradient(
+    transparent,
+    transparent,
+    transparent,
+    #00ccff
+  );
+  animation: rotate_border 6s linear infinite;
+  animation-delay: -3s;
+}
+
+@keyframes rotate_border {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.login-form {
+  border-radius: 50px 0px;
+}
+
+/* ************************************ */
+/* ************************************ */
+/* ************************************ */
+/* ************************************ */
+
+.img-container {
+  border-radius: 50px 0px;
+  align-items: center;
+}
+
+.img-container::before {
+  position: absolute;
+  width: 170%;
+  height: 170%;
+  content: "";
+  background-image: conic-gradient(
+    transparent,
+    transparent,
+    transparent,
+    #00ccff
+  );
+  animation: rotate_border2 6s linear infinite;
+}
+
+.img-container::after {
+  position: absolute;
+  width: 170%;
+  height: 170%;
+  content: "";
+  background-image: conic-gradient(
+    transparent,
+    transparent,
+    transparent,
+    #ee00ff
+  );
+  animation: rotate_border2 6s linear infinite;
+  animation-delay: -3s;
+}
+
+@keyframes rotate_border2 {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.img-form {
+  border-radius: 50px 0px;
+}
+.img-form img {
+  content: "";
+  border-radius: 50px 0px;
+}
+
+.txt-container {
+  border-radius: 20px 50px;
+}
+.allCard:hover {
+  backdrop-filter: blur(3vw);
+  /* background-color: rgba(255, 255, 255, 0.1); */
+  /* background-color: #ffffff1a; */
+  background-color: #dc64641a;
+  transform: translateY(-5%); /*total hove transition*/
+  transition: 1s;
+  border: 2px solid #45cec9;
+  border-radius: 8px;
+}
+/* ******************************************************* */
+/* ******************************************************* */
+/* ******************************************************* */
+/* ******************************************************* */
+/* ******************************************************* */
+.outer {
+  background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+  animation: rotate 1.5s linear infinite;
+}
+
+.btnn {
+  transform: translate(-50%, -50%);
+}
+
+.outer:hover {
+  background: linear-gradient(#ff66cc, #ff66cc, #ff00e0);
+  animation: rotate 1.5s linear infinite;
+  backdrop-filter: blur(3vw);
+  background-color: #34347f;
+  transform: translateY(-15%);
+  transition: 1s;
+}
+
+@keyframes rotate {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}

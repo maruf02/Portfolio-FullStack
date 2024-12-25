@@ -1,0 +1,165 @@
+.imgBx {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  /* icon size*/
+  border-radius: 50%;
+  transition: 0.5s;
+  border: 1px solid #fff;
+  border: 1px solid #096679;
+  box-shadow: 0 0 0 4px #222, 0 0 0 8px #ccffff;
+  transform: rotate(calc(360deg / 8 * var(--i)));
+  transform-origin: 245px;
+  /*icon size*/
+  z-index: 100;
+  overflow: hidden;
+}
+.imgBxx {
+  position: absolute;
+
+  /* icon size*/
+  /* border-radius: 50%; */
+  /* transition: 0.5s; */
+  /* border: 1px solid #fff; */
+  /* border: 1px solid #096679; */
+  box-shadow: 0 0 0 4px #222, 0 0 0 8px #ccffff;
+  /* transform: rotate(calc(360deg / 8 * var(--i))); */
+  /* transform-origin: 245px; */
+  /*icon size*/
+  /* z-index: 100; */
+  /* overflow: hidden; */
+}
+
+.imgBx img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  transform: rotate(calc(-360deg / 8 * var(--i)));
+  transition: 0.5s;
+  /* filter: grayscale(1); not need*/
+  /* filter: grayscale(1); */
+}
+
+.contentt::before {
+  content: "";
+  position: absolute;
+  inset: 30px;
+  border: 4px solid transparent;
+  border-left: 4px solid #990099;
+  border-right: 4px solid #008000;
+  border-radius: 50%;
+  animation: animate_01 5s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes animate_01 {
+  0% {
+    rotate: 0deg;
+  }
+
+  100% {
+    rotate: 360deg;
+  }
+}
+
+.contentt::after {
+  content: "";
+  position: absolute;
+  inset: 45px;
+  /*one border to another distance*/
+  border: 4px solid transparent;
+  border-left: 4px solid #0055ff;
+  border-right: 4px solid #994d00;
+  border-radius: 50%;
+  animation: animate_02 2.5s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes animate_02 {
+  0% {
+    rotate: 360deg;
+  }
+
+  100% {
+    rotate: 0deg;
+  }
+}
+/* ********************************************* */
+/* ********************************************* */
+/* media query */
+/* media query */
+
+@media only screen and (max-width: 640px) {
+  .imgBx {
+    width: 35px;
+    height: 35px;
+    transform-origin: 165px;
+    box-shadow: 0 0 0 1px #222, 0 0 0 1px #fff;
+  }
+
+  .imgSD {
+    box-shadow: 0 0 0 4px #222, 0 0 0 6px #ccffff;
+  }
+
+  .contentt::before {
+    inset: 18px;
+  }
+
+  .contentt::after {
+    inset: 32px;
+  }
+
+  /* ************* */
+}
+
+/* meadia query 768-tablet */
+@media only screen and (max-width: 768px) {
+  .imgBx {
+    width: 35px;
+    height: 35px;
+    transform-origin: 186px;
+    box-shadow: 0 0 0 1px #222, 0 0 0 1px #fff;
+  }
+
+  .imgSD {
+    box-shadow: 0 0 0 4px #222, 0 0 0 6px #ccffff;
+  }
+
+  .contentt::before {
+    inset: 17px;
+  }
+
+  .contentt::after {
+    inset: 30px;
+  }
+}
+
+/* meadia query 1024-laptop-small */
+@media only screen and (max-width: 1024px) {
+  .imgBx {
+    width: 35px;
+    height: 35px;
+    top: -6px;
+    transform-origin: 190px;
+    box-shadow: 0 0 0 1px #222, 0 0 0 1px #fff;
+  }
+
+  .imgSD {
+    bottom: -30px;
+    box-shadow: 0 0 0 4px #222, 0 0 0 6px #ccffff;
+  }
+
+  .contentt::before {
+    inset: 15px;
+  }
+
+  .contentt::after {
+    inset: 27px;
+  }
+}

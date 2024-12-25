@@ -1,0 +1,31 @@
+form input,
+textarea {
+  width: 100%;
+  padding: 1.4rem;
+  background: transparent;
+  border: 2px solid white;
+  border-radius: 0.8rem;
+  margin-bottom: 1rem;
+  font-size: 16px;
+  color: white;
+  resize: none;
+}
+form input::placeholder,
+textarea::placeholder {
+  color: white;
+}
+
+/* for bannerintro.jsx type writer css */
+/* for bannerintro.jsx type writer css */
+/* for bannerintro.jsx type writer css Mern Stack Developer */
+
+.textDev {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 10s, cursor 0.4s step-end infinite alternate;
+}
+
+/* for bannerintro.jsx type writer css */
+/* for bannerintro.jsx type writer css */
+/* for bannerintro.jsx type writer css */
