@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from "react";
 import SkillsProgSpinCard from "../SkillsProgSpinCard/SkillsProgSpinCard";
+import { useGetSkillsByTypeQuery } from "../../Redux/features/user/userApi";
 
 const SkillsProgSpin = () => {
-  const [skillsProgSpin, setSkillsProgSpin] = useState([]);
+  // const [skillsProgSpin, setSkillsProgSpin] = useState([]);
+  const type = "programmingSkill";
+  const { data: skill } = useGetSkillsByTypeQuery({ type });
+  const skills = skill?.data || [];
+  // useEffect(() => {
+  //   fetch(
+  //     "https://maruf02.github.io/Asset-Json-Img-dont-delete/ProgrammingSkills.json"
+  //     // "http://localhost:3000/api/programmingSkill"
+  //   )
+  //     .then((res) => res.json())
+  //     .then((data) => setSkillsProgSpin(data));
+  // }, []);
 
-  useEffect(() => {
-    fetch(
-      "https://maruf02.github.io/Asset-Json-Img-dont-delete/ProgrammingSkills.json"
-    )
-      .then((res) => res.json())
-      .then((data) => setSkillsProgSpin(data));
-  }, []);
-
-  // console.log(skillsProgSpin);
+  console.log("skillsProgSpin", skill);
 
   return (
     <div>
@@ -26,7 +30,7 @@ const SkillsProgSpin = () => {
         <div className=" container mx-auto flex flex-wrap justify-center align-middle text-center gap-2 lg:gap-7 ">
           {/* ************* */}
 
-          {skillsProgSpin.map((card) => (
+          {skills.map((card) => (
             <SkillsProgSpinCard key={card.id} card={card}></SkillsProgSpinCard>
           ))}
         </div>

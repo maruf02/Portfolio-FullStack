@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from "react";
 import ProjectCard from "../ProjectCard/ProjectCard";
+import { useGetAllProjectQuery } from "../../Redux/features/user/userApi";
 
 const ProjectPageAllCards = ({ searchText }) => {
-  const [allcard, setAllCard] = useState([]);
+  // const [allcard, setAllCard] = useState([]);
   const [displayCard, setDisplayCard] = useState([]);
-  useEffect(() => {
-    fetch("https://maruf02.github.io/Asset-Json-Img-dont-delete/Projects.json")
-      .then((res) => res.json())
-      .then((data) => setAllCard(data));
-  }, []);
+  const { data: project } = useGetAllProjectQuery(undefined);
+
+  const allcard = project?.data || [];
+
+  // useEffect(() => {
+  //   fetch("https://maruf02.github.io/Asset-Json-Img-dont-delete/Projects.json")
+  //     .then((res) => res.json())
+  //     .then((data) => setAllCard(data));
+  // }, []);
 
   const filterCards = () => {
     if (searchText === "All") {

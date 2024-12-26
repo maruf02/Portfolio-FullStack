@@ -6,12 +6,22 @@ import Home from "./Components/Home/Home";
 import Root from "./Components/Root/Root";
 import AboutPage from "./Components/AboutPage/AboutPage";
 import SkillsPage from "./Components/SkillsPage/SkillsPage";
-import ServicesPage from "./Components/ServicesPage/ServicesPage";
 import ProjectPage from "./Components/ProjectPage/ProjectPage";
 import ContactPage from "./Components/ContactPage/ContactPage";
 import ErrorPage from "./Components/ErrorPage/ErrorPage";
 import ProjectLiveShow from "./Components/ProjectLiveShow/ProjectLiveShow";
 import BlogPage from "./Components/BlogPage/BlogPage";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistor, store } from "./Redux/store";
+import LoginPage from "./DashBoard/LoginPage/LoginPage";
+import AdminHomePage from "./DashBoard/AdminHomePage/AdminHomePage";
+import ManageSkill from "./DashBoard/AdminHomePage/ManageSkill/ManageSkill";
+import ManageProject from "./DashBoard/AdminHomePage/ManageProject/ManageProject";
+import ManageBlog from "./DashBoard/AdminHomePage/ManageBlog/ManageBlog";
+import ProjectDetailsPage from "./Components/ProjectDetailsPage/ProjectDetailsPage";
+import BlogDetailsPage from "./Components/BlogDetailsPage/BlogDetailsPage";
+import AdminProtectRoute from "./DashBoard/AdminProtectRoute/AdminProtectRoute";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -48,11 +58,55 @@ const router = createBrowserRouter([
       },
       {
         path: "/Projects/:id",
-        element: <ProjectLiveShow></ProjectLiveShow>,
-        loader: () =>
-          fetch(
-            "https://maruf02.github.io/Asset-Json-Img-dont-delete/Projects.json"
-          ),
+        element: <ProjectDetailsPage></ProjectDetailsPage>,
+      },
+      {
+        path: "/blog/:id",
+        element: <BlogDetailsPage></BlogDetailsPage>,
+      },
+      // {
+      //   path: "/Projects/:id",
+      //   element: <ProjectLiveShow></ProjectLiveShow>,
+      //   loader: () =>
+      //     fetch(
+      //       "https://maruf02.github.io/Asset-Json-Img-dont-delete/Projects.json"
+      //     ),
+      // },
+      {
+        path: "/login",
+        element: <LoginPage></LoginPage>,
+      },
+      {
+        path: "/admin",
+        element: (
+          <AdminProtectRoute>
+            <AdminHomePage></AdminHomePage>
+          </AdminProtectRoute>
+        ),
+      },
+      {
+        path: "/ManageSkill",
+        element: (
+          <AdminProtectRoute>
+            <ManageSkill></ManageSkill>
+          </AdminProtectRoute>
+        ),
+      },
+      {
+        path: "/ManageProject",
+        element: (
+          <AdminProtectRoute>
+            <ManageProject></ManageProject>
+          </AdminProtectRoute>
+        ),
+      },
+      {
+        path: "/ManageBlog",
+        element: (
+          <AdminProtectRoute>
+            <ManageBlog></ManageBlog>
+          </AdminProtectRoute>
+        ),
       },
     ],
   },
@@ -60,6 +114,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <RouterProvider router={router} />
+      </PersistGate>
+    </Provider>
   </React.StrictMode>
 );

@@ -36,7 +36,7 @@ const MenuBarList = () => {
           </NavLink>
         </li>
         <li className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:text-lime-500 duration-100">
-          <NavLink to="/Login" className="activeNavLink ">
+          <NavLink to="/login" className="activeNavLink ">
             Login
           </NavLink>
         </li>

@@ -1,7 +1,16 @@
 import "./ProjectCard.css";
 import { Link } from "react-router-dom";
 const ProjectCard = ({ card }) => {
-  const { id, project_title, category, img, description, live_link } = card;
+  const {
+    _id,
+    project_title,
+    category,
+    img,
+    description,
+    live_link,
+    github_link,
+    technology,
+  } = card;
   const openInNewTab = (url) => {
     window.open(url, "_blank", "noopener,noreferrer");
   };
@@ -25,6 +34,9 @@ const ProjectCard = ({ card }) => {
                 </p>
                 <br />
                 <p className="text-base font-semibold text-start  ">
+                  {technology}
+                </p>
+                <p className="text-base font-semibold text-start  ">
                   {description}
                 </p>
               </div>
@@ -42,7 +54,7 @@ const ProjectCard = ({ card }) => {
                 </div>
                 <div className="outer relative  h-12 w-40 rounded-[50px] mt-3 -top-6  ">
                   <button
-                    onClick={() => openInNewTab(live_link)}
+                    onClick={() => openInNewTab(github_link)}
                     className="btnn absolute top-[50%] left-[50%] bg-[#34347f] text-white outline-none
                           border-none text-xl z-[9] tracking-[1px] uppercase cursor-pointer h-[44px] w-[156px] rounded-[50px]"
                   >
@@ -51,7 +63,7 @@ const ProjectCard = ({ card }) => {
                 </div>
               </div>
               {/* ****************** */}
-              <Link to={`/Projects/${id}`}>
+              <Link to={`/Projects/${_id}`}>
                 <div className="flex flex-row justify-center gap-5">
                   <div className="outer relative  h-12 w-72 rounded-[50px] mt-3 -top-7  ">
                     <button

@@ -10,7 +10,7 @@ const Root = () => {
       <MenuBar></MenuBar>
       <Outlet></Outlet>
       <FooterSection></FooterSection>
-      <DigitalClock></DigitalClock>
+      {/* <DigitalClock></DigitalClock> */}
     </div>
   );
 };

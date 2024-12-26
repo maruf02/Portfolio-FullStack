@@ -1,30 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ContactSection.css";
 import IconAnime from "../IconAnime/IconAnime";
 import emailjs from "emailjs-com";
+import { useForgotPasswordMutation } from "../../Redux/features/user/userApi";
+import Swal from "sweetalert2";
 
 const ContactSection = () => {
-  const sendEmail = (e) => {
+  // const [email, setEmail] = useState("");
+  const [forgotPassword] = useForgotPasswordMutation();
+
+  const sendEmail = async (e) => {
     e.preventDefault();
 
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const number = form.number.value;
+    const message = form.message.value;
+
+    const emailInfo = { name, email, number, message };
+    // setEmail(email);
+
+    console.log("email", emailInfo);
+    try {
+      // Trigger the forgot password mutation
+      await forgotPassword(emailInfo).unwrap();
+
+      Swal.fire({
+        title: "Success!",
+        text: "Thanks, For contact me.i will contact you very soon",
+        icon: "success",
+      });
+    } catch (error) {
+      Swal.fire({
+        title: "Error!",
+        text: "Email not found, please try again.",
+        icon: "error",
+      });
+    }
     // Use your own Service ID, Template ID, and User ID from EmailJS
-    emailjs
-      .sendForm(
-        "service_91gi2yv",
-        "template_pcj3rxg",
-        e.target,
-        "btalU--XqJ6nznuQE"
-      )
-      .then(
-        (result) => {
-          console.log("Email successfully sent:", result.text);
-          // Optionally, you can add logic here to handle successful email sending
-        },
-        (error) => {
-          console.error("Email sending failed:", error.text);
-          // Optionally, you can add logic here to handle failed email sending
-        }
-      );
+    // emailjs
+    //   .sendForm(
+    //     "service_91gi2yv",
+    //     "template_pcj3rxg",
+    //     e.target,
+    //     "btalU--XqJ6nznuQE"
+    //   )
+    //   .then(
+    //     (result) => {
+    //       console.log("Email successfully sent:", result.text);
+    //       // Optionally, you can add logic here to handle successful email sending
+    //     },
+    //     (error) => {
+    //       console.error("Email sending failed:", error.text);
+    //       // Optionally, you can add logic here to handle failed email sending
+    //     }
+    //   );
   };
 
   return (
